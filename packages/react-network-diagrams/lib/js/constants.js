@@ -1,58 +1,45 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
-exports.CircuitSegmentTypes = exports.EndpointLinks = exports.CircuitTypes = exports.Directions = exports.Positions = undefined;
+exports.Positions = exports.EndpointLinks = exports.Directions = exports.CircuitTypes = exports.CircuitSegmentTypes = void 0;
+var _keymirror = _interopRequireDefault(require("keymirror"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+/**
+ *  Copyright (c) 2018, The Regents of the University of California,
+ *  through Lawrence Berkeley National Laboratory (subject to receipt
+ *  of any required approvals from the U.S. Dept. of Energy).
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the BSD-style license found in the
+ *  LICENSE file in the root directory of this source tree.
+ */
 
-var _keymirror = require("keymirror");
-
-var _keymirror2 = _interopRequireDefault(_keymirror);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Positions = (0, _keymirror2.default)({
-    TOP: null,
-    BOTTOM: null,
-    LEFT: null,
-    RIGHT: null
-}); /**
-     *  Copyright (c) 2018, The Regents of the University of California,
-     *  through Lawrence Berkeley National Laboratory (subject to receipt
-     *  of any required approvals from the U.S. Dept. of Energy).
-     *  All rights reserved.
-     *
-     *  This source code is licensed under the BSD-style license found in the
-     *  LICENSE file in the root directory of this source tree.
-     */
-
-var Directions = (0, _keymirror2.default)({
-    NORTH: null,
-    SOUTH: null,
-    EAST: null,
-    WEST: null
+var Positions = exports.Positions = (0, _keymirror["default"])({
+  TOP: null,
+  BOTTOM: null,
+  LEFT: null,
+  RIGHT: null
 });
-
-var CircuitTypes = (0, _keymirror2.default)({
-    BASIC_CIRCUIT: null,
-    CONCATENATED_CIRCUIT: null,
-    PARALLEL_CIRCUIT: null
+var Directions = exports.Directions = (0, _keymirror["default"])({
+  NORTH: null,
+  SOUTH: null,
+  EAST: null,
+  WEST: null
 });
-
-var EndpointLinks = (0, _keymirror2.default)({
-    PARENT_BEGIN: null,
-    PARENT_END: null,
-    PREVIOUS_END: null,
-    NEXT_BEGIN: null
+var CircuitTypes = exports.CircuitTypes = (0, _keymirror["default"])({
+  BASIC_CIRCUIT: null,
+  CONCATENATED_CIRCUIT: null,
+  PARALLEL_CIRCUIT: null
 });
-
-var CircuitSegmentTypes = (0, _keymirror2.default)({
-    CIRCUIT: null,
-    ENDPOINT: null
+var EndpointLinks = exports.EndpointLinks = (0, _keymirror["default"])({
+  PARENT_BEGIN: null,
+  PARENT_END: null,
+  PREVIOUS_END: null,
+  NEXT_BEGIN: null
 });
-
-exports.Positions = Positions;
-exports.Directions = Directions;
-exports.CircuitTypes = CircuitTypes;
-exports.EndpointLinks = EndpointLinks;
-exports.CircuitSegmentTypes = CircuitSegmentTypes;
+var CircuitSegmentTypes = exports.CircuitSegmentTypes = (0, _keymirror["default"])({
+  CIRCUIT: null,
+  ENDPOINT: null
+});

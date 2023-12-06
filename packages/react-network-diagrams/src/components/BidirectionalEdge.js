@@ -16,7 +16,6 @@ import { LinearEdge } from "./LinearEdge";
 
 export class BidirectionalEdge extends React.Component {
     render() {
-        const paths = [];
         const sourceToTargetName = `${this.props.source}--${this.props.target}`;
         const targetToSourceName = `${this.props.target}--${this.props.source}`;
 
@@ -134,8 +133,6 @@ export class BidirectionalEdge extends React.Component {
                 </g>
             );
         }
-
-        return <g>{paths}</g>;
     }
 }
 
