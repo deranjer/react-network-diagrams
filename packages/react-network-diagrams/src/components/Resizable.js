@@ -17,53 +17,55 @@ import PropTypes from "prop-types";
  * a diagram and have this drive the width.
  */
 export class Resizable extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            width: 0
-        };
-        this.handleResize = this.handleResize.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: 0,
+    };
+    this.handleResize = this.handleResize.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", () => this.handleResize()); //eslint-disable-line
+    this.handleResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", () => this.handleResize()); //eslint-disable-line
+  }
+
+  handleResize() {
+    if (this.container) {
+      this.setState({
+        width: this.container.offsetWidth,
+      });
+    }
+  }
+
+  render() {
+    const props = { width: this.state.width };
+    if (this.props.aspect) {
+      props.height = this.state.width / this.props.aspect;
     }
 
-    componentDidMount() {
-        window.addEventListener("resize", () => this.handleResize()); //eslint-disable-line
-        this.handleResize();
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", () => this.handleResize()); //eslint-disable-line
-    }
-
-    handleResize() {
-        if (this.container) {
-            this.setState({
-                width: this.container.offsetWidth
-            });
-        }
-    }
-
-    render() {
-        const props = { width: this.state.width };
-        if (this.props.aspect) {
-            props.height = this.state.width / this.props.aspect;
-        }
-
-        const child = React.Children.only(this.props.children);
-        const childElement = this.state.width ? React.cloneElement(child, props) : null;
-        return (
-            <div
-                ref={c => {
-                    this.container = c;
-                }}
-                style={this.props.style}
-                {...this.props}
-            >
-                {childElement}
-            </div>
-        );
-    }
+    const child = React.Children.only(this.props.children);
+    const childElement = this.state.width
+      ? React.cloneElement(child, props)
+      : null;
+    return (
+      <div
+        ref={(c) => {
+          this.container = c;
+        }}
+        style={this.props.style}
+        {...this.props}
+      >
+        {childElement}
+      </div>
+    );
+  }
 }
 
 Resizable.propTypes = {
-    children: PropTypes.node
+  children: PropTypes.node,
 };

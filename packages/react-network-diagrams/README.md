@@ -1,27 +1,25 @@
 # React Network Diagrams [![Build Status](https://travis-ci.org/esnet/react-network-diagrams.svg?branch=master)](https://travis-ci.org/esnet/react-network-diagrams)
 
-
 This repository contains an initial set of React circuit drawing and network mapping components which are used within the ESnet Portal, but are not tied to ESnet, or even to network visualization.
 
 The mapping portion of this library is used in the public facing [ESnet Portal](http://my.es.net). The circuit diagrams code us used internally to track ESnet circuits in the ESDB.
 
 Current features of the library include:
 
- * Circuit diagrams:
-     - Basic
-     - Concatenated
-     - Parallel
- * Circuit couplers
- * Patch panel diagrams
- * Topology mapping
-     - Higher level network traffic visualization
-     - Linear, arc, bidirectional traffic and square edge types
- * Route rendering
+- Circuit diagrams:
+  - Basic
+  - Concatenated
+  - Parallel
+- Circuit couplers
+- Patch panel diagrams
+- Topology mapping
+  - Higher level network traffic visualization
+  - Linear, arc, bidirectional traffic and square edge types
+- Route rendering
 
 Please browse the examples for a feel for the library, or read on to get started.
 
-Getting started
----------------
+## Getting started
 
 The charts library is intended to be used with npm and the built into your project with something like webpack.
 
@@ -45,12 +43,11 @@ You can then `render()` the traffic map in your component:
                 stylesMap={stylesMap}
                 selection={mapSelection}
                 onSelectionChange={this.handleSelectionChanged} />
-                
+
 
 See the examples for more information.
 
-Examples
---------
+## Examples
 
 To run the examples yourself you first need to run:
 

@@ -1,1 +1,3 @@
-svg text::selection { background: none; }
+svg text::selection {
+  background: none;
+}

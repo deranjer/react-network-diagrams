@@ -15,155 +15,155 @@ import { ArcEdge } from "./ArcEdge";
 import { LinearEdge } from "./LinearEdge";
 
 export class BidirectionalEdge extends React.Component {
-    render() {
-        const sourceToTargetName = `${this.props.source}--${this.props.target}`;
-        const targetToSourceName = `${this.props.target}--${this.props.source}`;
+  render() {
+    const sourceToTargetName = `${this.props.source}--${this.props.target}`;
+    const targetToSourceName = `${this.props.target}--${this.props.source}`;
 
-        // Position of the bidirectional lines relative to the center line
-        const position = this.props.width * 0.75;
+    // Position of the bidirectional lines relative to the center line
+    const position = this.props.width * 0.75;
 
-        if (this.props.shape === "curved") {
-            return (
-                <g>
-                    <ArcEdge
-                        name={this.props.name}
-                        x1={this.props.x1}
-                        y1={this.props.y1}
-                        x2={this.props.x2}
-                        y2={this.props.y2}
-                        arrow={true}
-                        position={position}
-                        color={this.props.sourceTargetColor}
-                        width={this.props.width}
-                        classed={this.props.classed}
-                        key={sourceToTargetName}
-                        curveDirection={this.props.curveDirection}
-                        offset={this.props.offset}
-                        selected={this.props.selected}
-                        onSelectionChange={this.props.onSelectionChange}
-                        muted={this.props.muted}
-                    />
+    if (this.props.shape === "curved") {
+      return (
+        <g>
+          <ArcEdge
+            name={this.props.name}
+            x1={this.props.x1}
+            y1={this.props.y1}
+            x2={this.props.x2}
+            y2={this.props.y2}
+            arrow={true}
+            position={position}
+            color={this.props.sourceTargetColor}
+            width={this.props.width}
+            classed={this.props.classed}
+            key={sourceToTargetName}
+            curveDirection={this.props.curveDirection}
+            offset={this.props.offset}
+            selected={this.props.selected}
+            onSelectionChange={this.props.onSelectionChange}
+            muted={this.props.muted}
+          />
 
-                    <ArcEdge
-                        name={this.props.name}
-                        x1={this.props.x2}
-                        y1={this.props.y2}
-                        x2={this.props.x1}
-                        y2={this.props.y1}
-                        arrow={true}
-                        position={position}
-                        color={this.props.targetSourceColor}
-                        width={this.props.width}
-                        classed={this.props.classed}
-                        key={targetToSourceName}
-                        curveDirection={this.props.curveDirection}
-                        offset={this.props.offset}
-                        selected={this.props.selected}
-                        onSelectionChange={this.props.onSelectionChange}
-                        muted={this.props.muted}
-                    />
+          <ArcEdge
+            name={this.props.name}
+            x1={this.props.x2}
+            y1={this.props.y2}
+            x2={this.props.x1}
+            y2={this.props.y1}
+            arrow={true}
+            position={position}
+            color={this.props.targetSourceColor}
+            width={this.props.width}
+            classed={this.props.classed}
+            key={targetToSourceName}
+            curveDirection={this.props.curveDirection}
+            offset={this.props.offset}
+            selected={this.props.selected}
+            onSelectionChange={this.props.onSelectionChange}
+            muted={this.props.muted}
+          />
 
-                    <ArcEdge
-                        name={this.props.name}
-                        x1={this.props.x2}
-                        y1={this.props.y2}
-                        x2={this.props.x1}
-                        y2={this.props.y1}
-                        position={0}
-                        width={5}
-                        classed={this.props.classed}
-                        key={`${sourceToTargetName}-event-region`}
-                        onSelectionChange={this.props.onSelectionChange}
-                        curveDirection={this.props.curveDirection}
-                        offset={this.props.offset}
-                        invisible={true}
-                    />
-                </g>
-            );
-        } else {
-            return (
-                <g>
-                    <LinearEdge
-                        name={this.props.name}
-                        x1={this.props.x1}
-                        y1={this.props.y1}
-                        x2={this.props.x2}
-                        y2={this.props.y2}
-                        arrow={true}
-                        color={this.props.sourceTargetColor}
-                        width={this.props.width}
-                        position={position}
-                        className={this.props.classed}
-                        key={sourceToTargetName}
-                        selected={this.props.selected}
-                        muted={this.props.muted}
-                        onSelectionChange={this.props.onSelectionChange}
-                    />
+          <ArcEdge
+            name={this.props.name}
+            x1={this.props.x2}
+            y1={this.props.y2}
+            x2={this.props.x1}
+            y2={this.props.y1}
+            position={0}
+            width={5}
+            classed={this.props.classed}
+            key={`${sourceToTargetName}-event-region`}
+            onSelectionChange={this.props.onSelectionChange}
+            curveDirection={this.props.curveDirection}
+            offset={this.props.offset}
+            invisible={true}
+          />
+        </g>
+      );
+    } else {
+      return (
+        <g>
+          <LinearEdge
+            name={this.props.name}
+            x1={this.props.x1}
+            y1={this.props.y1}
+            x2={this.props.x2}
+            y2={this.props.y2}
+            arrow={true}
+            color={this.props.sourceTargetColor}
+            width={this.props.width}
+            position={position}
+            className={this.props.classed}
+            key={sourceToTargetName}
+            selected={this.props.selected}
+            muted={this.props.muted}
+            onSelectionChange={this.props.onSelectionChange}
+          />
 
-                    <LinearEdge
-                        name={this.props.name}
-                        x1={this.props.x2}
-                        y1={this.props.y2}
-                        x2={this.props.x1}
-                        y2={this.props.y1}
-                        arrow={true}
-                        color={this.props.targetSourceColor}
-                        width={this.props.width}
-                        position={position}
-                        className={this.props.classed}
-                        key={targetToSourceName}
-                        selected={this.props.selected}
-                        muted={this.props.muted}
-                        onSelectionChange={this.props.onSelectionChange}
-                    />
+          <LinearEdge
+            name={this.props.name}
+            x1={this.props.x2}
+            y1={this.props.y2}
+            x2={this.props.x1}
+            y2={this.props.y1}
+            arrow={true}
+            color={this.props.targetSourceColor}
+            width={this.props.width}
+            position={position}
+            className={this.props.classed}
+            key={targetToSourceName}
+            selected={this.props.selected}
+            muted={this.props.muted}
+            onSelectionChange={this.props.onSelectionChange}
+          />
 
-                    <LinearEdge
-                        name={this.props.name}
-                        x1={this.props.x2}
-                        y1={this.props.y2}
-                        x2={this.props.x1}
-                        y2={this.props.y1}
-                        width={5}
-                        position={0}
-                        className={this.props.classed}
-                        key={`${targetToSourceName}-event-region`}
-                        onSelectionChange={this.props.onSelectionChange}
-                        invisible={true}
-                    />
-                </g>
-            );
-        }
+          <LinearEdge
+            name={this.props.name}
+            x1={this.props.x2}
+            y1={this.props.y2}
+            x2={this.props.x1}
+            y2={this.props.y1}
+            width={5}
+            position={0}
+            className={this.props.classed}
+            key={`${targetToSourceName}-event-region`}
+            onSelectionChange={this.props.onSelectionChange}
+            invisible={true}
+          />
+        </g>
+      );
     }
+  }
 }
 
 BidirectionalEdge.propTypes = {
-    /** The width of the circuit diagram */
-    width: PropTypes.number,
+  /** The width of the circuit diagram */
+  width: PropTypes.number,
 
-    /**
-     * This is the vertical spacing
-     */
-    spacing: PropTypes.number,
+  /**
+   * This is the vertical spacing
+   */
+  spacing: PropTypes.number,
 
-    /** An offset to the position of the label which can be used for fine tuning */
-    offset: PropTypes.number,
+  /** An offset to the position of the label which can be used for fine tuning */
+  offset: PropTypes.number,
 
-    sourceTargetColor: PropTypes.string,
-    targetSourceColor: PropTypes.string,
+  sourceTargetColor: PropTypes.string,
+  targetSourceColor: PropTypes.string,
 
-    /** Display the endpoint selected */
-    selected: PropTypes.bool,
+  /** Display the endpoint selected */
+  selected: PropTypes.bool,
 
-    /** Display the endpoint muted */
-    muted: PropTypes.bool
+  /** Display the endpoint muted */
+  muted: PropTypes.bool,
 };
 
 BidirectionalEdge.defaultProps = {
-    width: 1,
-    spacing: 3.5,
-    offset: 18,
-    sourceTargetColor: "#C9CACC",
-    targetSourceColor: "#C9CACC",
-    selected: false,
-    muted: false
+  width: 1,
+  spacing: 3.5,
+  offset: 18,
+  sourceTargetColor: "#C9CACC",
+  targetSourceColor: "#C9CACC",
+  selected: false,
+  muted: false,
 };

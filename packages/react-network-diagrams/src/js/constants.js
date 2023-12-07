@@ -11,35 +11,41 @@
 import keyMirror from "keymirror";
 
 const Positions = keyMirror({
-    TOP: null,
-    BOTTOM: null,
-    LEFT: null,
-    RIGHT: null
+  TOP: null,
+  BOTTOM: null,
+  LEFT: null,
+  RIGHT: null,
 });
 
 const Directions = keyMirror({
-    NORTH: null,
-    SOUTH: null,
-    EAST: null,
-    WEST: null
+  NORTH: null,
+  SOUTH: null,
+  EAST: null,
+  WEST: null,
 });
 
 const CircuitTypes = keyMirror({
-    BASIC_CIRCUIT: null,
-    CONCATENATED_CIRCUIT: null,
-    PARALLEL_CIRCUIT: null
+  BASIC_CIRCUIT: null,
+  CONCATENATED_CIRCUIT: null,
+  PARALLEL_CIRCUIT: null,
 });
 
 const EndpointLinks = keyMirror({
-    PARENT_BEGIN: null,
-    PARENT_END: null,
-    PREVIOUS_END: null,
-    NEXT_BEGIN: null
+  PARENT_BEGIN: null,
+  PARENT_END: null,
+  PREVIOUS_END: null,
+  NEXT_BEGIN: null,
 });
 
 const CircuitSegmentTypes = keyMirror({
-    CIRCUIT: null,
-    ENDPOINT: null
+  CIRCUIT: null,
+  ENDPOINT: null,
 });
 
-export { Positions, Directions, CircuitTypes, EndpointLinks, CircuitSegmentTypes };
+export {
+  Positions,
+  Directions,
+  CircuitTypes,
+  EndpointLinks,
+  CircuitSegmentTypes,
+};

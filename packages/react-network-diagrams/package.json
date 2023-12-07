@@ -1,6 +1,6 @@
 {
   "name": "react-network-diagrams",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "network",
     "circuits",
@@ -10,10 +10,18 @@
     "editor",
     "react"
   ],
-  "main": "lib/index",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "source": "src/index.js",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
   "homepage": "http://software.es.net/react-network-diagrams",
   "author": "ESnet Tools Team <tools@es.net>",
-  "repository": "esnet/react-network-diagrams",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esnet/react-network-diagrams.git"
+  },
   "bugs": {
     "url": "https://github.com/esnet/react-network-diagrams/issues"
   },
@@ -21,18 +29,14 @@
     "docs": "echo \"*** Building API docs\n\" && react-docgen src/components -x js -o ../website/src/api/docs.json --pretty",
     "lint": "eslint src/components/*.js",
     "test": "npm run lint",
-    "build": "echo \"*** Building lib\n\" && rm -rf lib/* && npx babel src/components --out-dir lib/components && npx babel src/js --out-dir lib/js && npx babel src/index.js --out-file lib/index.js",
+    "watch": "parcel watch",
+    "build": "echo \"*** Building dist\n\" && rm -rf dist/* && parcel build",
+    "prepublishOnly": "rm -rf ./dist && npm run build",
     "start-website": "react-scripts start",
     "build-website": "echo \"*** Building website\n\" && rm -rf docs && react-scripts build && mv build docs",
     "test-build": "react-scripts build",
-    "precommit": "lint-staged",
+    "precommit": "npm run lint && npm run prettier",
     "prettier": "npx prettier . --write"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --print-width 100 --tab-width 4 --write",
-      "git add"
-    ]
   },
   "pre-commit": [
     "lint",
@@ -40,32 +44,27 @@
   ],
   "license": "BSD-3-Clause-LBNL",
   "dependencies": {
-    "@babel/eslint-parser": "^7.23.3",
-    "babel-runtime": "^6.26.0",
     "d3-scale": "^4.0.2",
     "keymirror": "^0.1.1",
     "prop-types": "^15.8.1",
+    "react-select": "^5.8.0",
     "underscore": "^1.13.6",
     "victor": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.4",
-    "@babel/core": "^7.23.5",
-    "@babel/plugin-transform-arrow-functions": "^7.23.3",
-    "@babel/preset-env": "^7.23.5",
-    "@babel/preset-react": "^7.23.3",
-    "lint-staged": "^15.2.0",
+    "parcel": "^2.10.3",
     "prettier": "3.1.0",
     "react": "^18.2.0",
     "react-docgen": "^7.0.1",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "react-select": "^5.8.0"
+    "react-scripts": "^5.0.1"
   },
   "peerDependencies": {
-    "react": "^15.3.1 || ^16.0 || ^17.0 || ^18.0"
+    "react": "^16.0 || ^17.0 || ^18.0",
+    "react-dom": "^16.0 || ^17.0 || ^18.0"
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "description": "This repository contains an initial set of React circuit drawing and network mapping components which are used within the ESnet Portal, but are not tied to ESnet, or even to network visualization."
 }
